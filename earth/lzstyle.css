@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+  --black-color: #0d0d0d;
+  --white-color: #ffffff;
+  --grey-color: #585858;
+
+  --purple-color: #674667;
+  --purple-dark:#51304f;
+  --purple-light:#a376a2;
+  --purple-lighter: #ddc3c3;
+
+  --p--font:15px;
+  --h1--font:38px;
+}
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+.login-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; 
+  width: 100%;
+}
+
+.login-box {
+  background: var(--white-color);
+  padding: 30px 40px;
+  border-radius: 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 390px;
+}
+
+.login-box img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--purple-color);
+}
+
+.login-box h1{
+  color: var(--purple-dark);
+  font-size: var(--h1--font);
+  margin-top: 0;
+  margin-bottom: 14px;
+  border-bottom: solid 2px var(--purple-color);
+}
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.login-input {
+  padding: 15px;
+  border: 2px solid var(--purple-lighter);
+  border-radius: 15px;
+  outline: none;
+  font-size: var(--p--font);
+  font-family: "Poppins", sans-serif;
+  color: var(--grey-color);
+  transition: border-color 0.3s;
+}
+
+.login-input::placeholder{
+  color: var(--grey-color);
+}
+
+.login-form .forgot-link{
+  text-decoration: none;
+  display: block;
+  margin-left: 110px;
+  color: var(--purple-color);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.login-form .forgot-link:hover{
+  color: var(--purple-dark);
+}
+
+.login-button{
+  background-color: var(--purple-color);
+  border: none;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: var(--p--font);
+  color: var(--white-color);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-button:hover{
+  background-color: var(--purple-dark);
+}
