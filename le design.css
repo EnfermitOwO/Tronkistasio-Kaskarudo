@@ -1,0 +1,184 @@
+/* Fondo general */
+body {
+  background-color: #f2f2f2;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Tarjeta central */
+.card {
+  background-color: #ffffff;
+  width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  padding: 30px;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+/* Encabezado */
+header {
+  background-color: #1e293b;
+  color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8em;
+}
+
+/* Botón del tema */
+header button {
+  position: left;
+  top: 15px;
+  right: 15px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+header button:hover {
+  background-color: #2563eb;
+}
+
+/* Secciones */
+section {
+  margin-top: 25px;
+}
+
+h2 {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+p {
+  font-size: 0.95em;
+  color: #333;
+}
+
+/* Servicios */
+
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.card-item {
+  background-color: #f5f5f5;
+  padding: 12px;
+  border-radius: 8px;
+  flex: 1;
+  margin: 0 5px;
+  font-weight: bold;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Contacto */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background-color: #1d4ed8;
+}
+
+/* GIF */
+.gif-container {
+  text-align: center;
+  margin-top: 25px;
+}
+
+.gif-container img {
+  width: 150px;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.gif-container img:hover {
+  transform: scale(1.1);
+}
+
+/* Tema oscuro */
+
+
+.oscuro {
+  background-color: #0f172a;
+}
+
+.oscuro .card {
+  background-color: #1e293b;
+  color: #f8fafc;
+}
+
+.oscuro header {
+  background-color: #334155;
+}
+
+.oscuro header button {
+  background-color: #090909;
+}
+
+.oscuro header button:hover {
+  background-color: #0e0d0d;
+}
+
+.oscuro .card-item {
+  background-color: #475569;
+  color: #f1f5f9;
+}
+
+.oscuro input {
+  background-color: #334155;
+  color: #f8fafc;
+  border: 1px solid #64748b;
+}
+
+body {
+  background-color: #fff;
+  color: #000;
+}
+
+/* Estilo del modo oscuro */
+body.dark-mode {
+  background-color: #121212;
+  color: #fff; /* Hace que todo el texto sea blanco */
+}
+
+/* Si quieres, puedes ajustar secciones específicas */
+body.dark-mode .about h2,
+body.dark-mode .about p {
+  color: #f1f1f1;
+}
