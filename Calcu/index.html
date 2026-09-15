@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora equipo Troncos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <header class="header">
+        <h1>Calculadora equipo Troncos</h1>
+        <p class="header-sub">Suma, resta, multiplica y divide desde otro planeta.</p>
+    </header>
+
+    <main class="calc-wrap">
+        <div class="calculadora">
+            <div class="pantalla">
+                <div id="historial" class="historial"></div>
+                <div id="resultado" class="resultado">0</div>
+            </div>
+
+            <div class="botones">
+                <button class="btn accion" data-accion="limpiar">C</button>
+                <button class="btn accion" data-accion="borrar">⌫</button>
+                <button class="btn operador" data-operador="/">÷</button>
+                <button class="btn operador" data-operador="*">×</button>
+
+                <button class="btn numero" data-numero="7">7</button>
+                <button class="btn numero" data-numero="8">8</button>
+                <button class="btn numero" data-numero="9">9</button>
+                <button class="btn operador" data-operador="-">−</button>
+
+                <button class="btn numero" data-numero="4">4</button>
+                <button class="btn numero" data-numero="5">5</button>
+                <button class="btn numero" data-numero="6">6</button>
+                <button class="btn operador" data-operador="+">+</button>
+
+                <button class="btn numero" data-numero="1">1</button>
+                <button class="btn numero" data-numero="2">2</button>
+                <button class="btn numero" data-numero="3">3</button>
+                <button class="btn igual" id="btnIgual" rowspan="2">=</button>
+
+                <button class="btn numero cero" data-numero="0">0</button>
+                <button class="btn numero" data-numero=".">.</button>
+            </div>
+        </div>
+
+    </main>
+
+    <div class="gifs-row">
+        <div class="gif-wrapper">
+            <div class="tenor-gif-embed" data-postid="8090779692191516473" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/glorp-gif-8090779692191516473">Glorp Sticker</a>from <a href="https://tenor.com/search/glorp-stickers">Glorp Stickers</a></div>
+        </div>
+    </div>
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+    <button id="togglePaywall" class="toggle-paywall" data-activo="true" title="Activar/desactivar pantalla premium">
+        <span class="toggle-icono">🔒</span>
+    </button>
+
+    <div id="modalOverlay" class="modal-overlay oculto">
+        <div class="modal-card">
+            <button id="cerrarModal" class="modal-cerrar" aria-label="Cerrar">✕</button>
+
+            <span class="modal-icono">👽</span>
+            <h2>Desbloquea las Funciones Premium</h2>
+            <p class="modal-sub">Actualiza para acceder a la resta, multiplicación, división, puntos decimales, modo oscuro, ¡y pensamiento más rápido!</p>
+
+            <div class="planes">
+                <div class="plan plan-pro">
+                    <span class="plan-nombre">PRO</span>
+                    <div class="plan-precio"><span class="precio">$9.99</span><span class="periodo">/mes</span></div>
+                    <ul class="plan-features">
+                        <li>✓ Resta (-)</li>
+                        <li>✓ Multiplicación (*)</li>
+                        <li>✓ Tema Oscuro</li>
+                    </ul>
+                    <button class="plan-btn plan-btn-pro">Suscribirse a PRO</button>
+                </div>
+
+                <div class="plan plan-ultra">
+                    <span class="badge-popular">MÁS POPULAR</span>
+                    <span class="plan-nombre plan-nombre-ultra">ULTRA</span>
+                    <div class="plan-precio"><span class="precio">$29.99</span><span class="periodo">/mes</span></div>
+                    <ul class="plan-features">
+                        <li>✓ Todo lo de PRO</li>
+                        <li>✓ División (/) y Decimales (.)</li>
+                        <li>✓ Igual Instantáneo (¡Sin pensarlo!)</li>
+                        <li>✓ Soporte Prioritario</li>
+                    </ul>
+                    <button class="plan-btn plan-btn-ultra">Suscribirse a ULTRA</button>
+                </div>
+            </div>
+
+            <button id="maybeLater" class="maybe-later">Tal vez después</button>
+        </div>
+    </div>
+
+<script src="script.js"></script>
+</body>
+</html>

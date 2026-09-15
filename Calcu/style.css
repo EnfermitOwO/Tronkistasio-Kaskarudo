@@ -1,0 +1,438 @@
+/* ==========================================================
+   Tema: transmisión alienígena — Calculadora equipo Troncos
+   ========================================================== */
+
+:root {
+    --void: #0a0f0c;
+    --panel: #101a15;
+    --panel-2: #0c1712;
+    --panel-border: #1f3327;
+    --acid: #8dff5a;
+    --acid-dim: #4f8a3a;
+    --pink: #ff5cc8;
+    --violet: #b48bff;
+    --text: #e6f2e2;
+    --text-muted: #8fa896;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top right, rgba(255, 92, 200, 0.35), transparent 45%),
+        radial-gradient(ellipse at bottom left, rgba(141, 255, 90, 0.12), transparent 55%),
+        var(--void);
+    color: var(--text);
+}
+
+h1 {
+    font-family: "Chakra Petch", "Inter", sans-serif;
+    margin: 0;
+}
+
+/* ---------- Header ---------- */
+.header {
+    padding: 40px 30px 10px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--acid);
+    text-shadow: 0 0 18px rgba(141, 255, 90, 0.35);
+}
+
+.header-sub {
+    margin-top: 10px;
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* ---------- Calculadora ---------- */
+.calc-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px 10px;
+}
+
+.calculadora {
+    width: 320px;
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.pantalla {
+    background: #08130c;
+    border: 1px solid var(--panel-border);
+    border-radius: 10px;
+    padding: 18px 16px;
+    margin-bottom: 16px;
+    text-align: right;
+}
+
+.historial {
+    min-height: 20px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.resultado {
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 2.2rem;
+    color: var(--acid);
+    text-shadow: 0 0 10px rgba(141, 255, 90, 0.35);
+    overflow-x: auto;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.resultado.bloqueado {
+    font-size: 1.4rem;
+    color: var(--pink);
+    text-shadow: 0 0 10px rgba(255, 92, 200, 0.35);
+}
+
+.botones {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.btn {
+    padding: 16px 0;
+    border-radius: 10px;
+    border: 1px solid var(--panel-border);
+    background: #0c1712;
+    color: var(--text);
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease, transform 0.1s ease, background 0.15s ease;
+}
+
+.btn:hover {
+    border-color: var(--acid-dim);
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn.numero {
+    background: #0c1712;
+}
+
+.btn.cero {
+    grid-column: span 2;
+}
+
+.btn.operador {
+    background: rgba(180, 139, 255, 0.12);
+    color: var(--pink);
+    border-color: rgba(255, 92, 200, 0.4);
+}
+
+.btn.operador:hover {
+    background: rgba(255, 92, 200, 0.18);
+}
+
+.btn.accion {
+    background: rgba(141, 255, 90, 0.08);
+    color: var(--acid);
+    border-color: var(--acid-dim);
+}
+
+.btn.igual {
+    grid-row: span 2;
+    background: var(--acid);
+    color: #08130c;
+    font-weight: 600;
+    border: none;
+}
+
+.btn.igual:hover {
+    background: #a4ff7f;
+}
+
+/* ---------- Botón oculto: activar/desactivar pantalla premium ---------- */
+.toggle-paywall {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--panel-2);
+    border: 1px solid var(--panel-border);
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.45;
+    transition: opacity 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    z-index: 10;
+}
+
+.toggle-paywall:hover {
+    opacity: 1;
+    border-color: var(--acid-dim);
+    transform: translateY(-1px);
+}
+
+.toggle-paywall[data-activo="false"] {
+    border-color: var(--acid-dim);
+}
+
+.toggle-icono {
+    line-height: 1;
+}
+
+/* ---------- Gif ---------- */
+.gifs-row {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto 40px;
+    padding: 0 20px;
+}
+
+.gif-wrapper {
+    width: 130px;
+}
+
+.gif-wrapper .tenor-gif-embed {
+    width: 100% !important;
+}
+
+.gif-wrapper .tenor-gif-embed iframe,
+.gif-wrapper .tenor-gif-embed img {
+    width: 100% !important;
+    height: auto !important;
+}
+
+/* ---------- Modal "premium" ---------- */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(5, 8, 6, 0.78);
+    backdrop-filter: blur(3px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 100;
+}
+
+.modal-overlay.oculto {
+    display: none;
+}
+
+.modal-card {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background:
+        radial-gradient(circle at top right, rgba(255, 92, 200, 0.14), transparent 50%),
+        var(--panel);
+    color: var(--text);
+    border: 1px solid var(--panel-border);
+    border-radius: 20px;
+    padding: 34px 30px 26px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    font-family: "Inter", sans-serif;
+}
+
+.modal-icono {
+    display: block;
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.modal-cerrar {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--panel-border);
+    background: var(--panel-2);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-cerrar:hover {
+    border-color: var(--pink);
+    color: var(--pink);
+}
+
+.modal-card h2 {
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 1.6rem;
+    margin: 0 0 12px;
+    color: var(--acid);
+    text-shadow: 0 0 14px rgba(141, 255, 90, 0.3);
+}
+
+.modal-sub {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0 0 26px;
+}
+
+.planes {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.plan {
+    position: relative;
+    flex: 1 1 200px;
+    max-width: 220px;
+    border: 1px solid var(--panel-border);
+    background: var(--panel-2);
+    border-radius: 14px;
+    padding: 20px 16px;
+    text-align: left;
+}
+
+.plan-ultra {
+    background: linear-gradient(180deg, rgba(180, 139, 255, 0.1), rgba(255, 92, 200, 0.06)), var(--panel-2);
+    border-color: rgba(180, 139, 255, 0.5);
+}
+
+.badge-popular {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, var(--violet), var(--pink));
+    color: #08130c;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.plan-nombre {
+    display: block;
+    font-family: "Chakra Petch", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 12px;
+    color: var(--text);
+}
+
+.plan-nombre-ultra {
+    color: var(--violet);
+}
+
+.plan-precio {
+    margin-bottom: 16px;
+}
+
+.plan-precio .precio {
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.plan-precio .periodo {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-left: 2px;
+}
+
+.plan-features {
+    list-style: none;
+    margin: 0 0 18px;
+    padding: 0;
+}
+
+.plan-features li {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding: 7px 0;
+    border-bottom: 1px solid var(--panel-border);
+}
+
+.plan-features li:last-child {
+    border-bottom: none;
+}
+
+.plan-btn {
+    width: 100%;
+    padding: 11px 0;
+    border-radius: 999px;
+    border: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.plan-btn-pro {
+    background: var(--panel-border);
+    color: var(--text);
+}
+
+.plan-btn-pro:hover {
+    background: #2a4030;
+}
+
+.plan-btn-ultra {
+    background: linear-gradient(90deg, var(--violet), var(--pink));
+    color: #08130c;
+    font-weight: 700;
+}
+
+.plan-btn-ultra:hover {
+    filter: brightness(1.08);
+}
+
+.maybe-later {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    text-decoration: underline;
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.maybe-later:hover {
+    color: var(--acid);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 400px) {
+    .calculadora {
+        width: 100%;
+        max-width: 320px;
+    }
+}
